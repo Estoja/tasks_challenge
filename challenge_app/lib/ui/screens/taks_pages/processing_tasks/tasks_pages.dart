@@ -1,10 +1,9 @@
 
-import 'package:bds_mobile/atoms/atoms.dart';
 import 'package:bds_mobile/foundations/foundations.dart';
 import 'package:bds_mobile/organisms/organisms.dart';
-import 'package:challenge_app/ui/screens/taks_pages/current_task.dart';
-import 'package:challenge_app/ui/screens/taks_pages/finished_tasks.dart';
-import 'package:challenge_app/ui/screens/taks_pages/standby_tasks.dart';
+import 'package:challenge_app/ui/screens/taks_pages/processing_tasks/current_task.dart';
+import 'package:challenge_app/ui/screens/taks_pages/processing_tasks/finished_tasks.dart';
+import 'package:challenge_app/ui/screens/taks_pages/processing_tasks/standby_tasks.dart';
 import 'package:flutter/material.dart';
 
 class TasksPages extends StatefulWidget {

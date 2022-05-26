@@ -2,32 +2,32 @@ import 'dart:convert';
 
 class Task {
   final String id;
+  final String title;
+  final String description;
   final List<String> keyWords;
   final int? finalPrice;
   final int? count;
   final String state;
   final Reviewed client;
-  final Reviewed doer;
-  //Las fechas se guardara en timeStamp
-  final int date;
-  int createdDated = DateTime.now().millisecondsSinceEpoch;
+  final Reviewed? doer;
+  final DateTime scheduleDate;
+  DateTime createdDate = DateTime.now();
   final int? duration;
 
   Task({
-    required this.id,
+    this.id = '',
+    required this.title,
+    required this.description,
     required this.keyWords,
     this.finalPrice,
     this.count = 1,
-    required this.state,
+    this.state = "NEW",
     required this.client,
-    required this.doer,
-    required this.date,
+    this.doer,
+    required this.scheduleDate,
     this.duration
   });
 
-  setCurrentTime() {
-    createdDated = DateTime.now().microsecondsSinceEpoch;
-  }
 
   factory Task.fromJson(String str) => Task.fromMap(json.decode(str));
 
@@ -35,26 +35,30 @@ class Task {
 
   factory Task.fromMap(Map<String, dynamic> json) => Task(
     id: json["id"],
+    title: json["title"],
+    description: json["description"],
     keyWords: json["keyWords"],
     finalPrice: json["finalPrice"],
     count: json["count"],
     state: json["state"],
-    client: Reviewed.fromJson(json["client"]),
-    doer: Reviewed.fromJson(json["doer"]),
-    date: json["date"],
-    duration: json["duration"]
+    scheduleDate: DateTime.parse(json["scheduleDate"]),
+    duration: json["duration"],
+    client: Reviewed.fromMap(json["client"]),
+    doer: Reviewed.fromMap(json["doer"] ?? {"id": "", "proposed_price": 0}),
   );
 
   Map<String, dynamic> toMap() => {
     "id": id,
+    "title": title,
+    "description": description,
     "keyWords": keyWords,
     "finalPrice": finalPrice,
     "count": count,
     "state": state,
+    "date": scheduleDate,
+    "duration": duration,
     "client": Reviewed.fromMap(client.toMap()),
-    "doer": Reviewed.fromMap(doer.toMap()),
-    "date": date,
-    "duration": duration
+    "doer": Reviewed.fromMap(doer!.toMap()),
   };
 }
 
@@ -63,8 +67,8 @@ class Reviewed {
     Reviewed({
         required this.idUser,
         required this.proposedPrice,
-        this.review,
-        this.score,
+        this.review = '',
+        this.score = 0.0,
     });
 
     final String idUser;
@@ -79,8 +83,8 @@ class Reviewed {
     factory Reviewed.fromMap(Map<String, dynamic> json) => Reviewed(
         idUser: json["id"],
         proposedPrice: json["proposed_price"],
-        review: json["review"],
-        score: json["score"].toDouble(),
+        review: json["review"] ?? '',
+        score: json["score"]?.toDouble(),
     );
 
     Map<String, dynamic> toMap() => {

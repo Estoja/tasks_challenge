@@ -3,4 +3,5 @@ class AppRoutes {
     static const availableServices = '/';
     static const login = '/login';
     static const newTask = '/newTask';
+    static const createdTask = '/createdTask';
 }
