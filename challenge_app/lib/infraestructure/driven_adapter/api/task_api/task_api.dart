@@ -1,9 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:challenge_app/domain/models/task/gateway/task_gateway.dart';
 import 'package:challenge_app/domain/models/task/task.dart';
-import 'package:challenge_app/infraestructure/driven_adapter/api/mock/task_api_mock.dart';
+import 'package:challenge_app/infraestructure/driven_adapter/api/task_api/mock/task_api_mock.dart';
 import 'package:http/http.dart' as http;
 
 class TaskApi extends TaskGateway {
@@ -17,7 +15,7 @@ class TaskApi extends TaskGateway {
   Future<Task> createTask(Task task) async {
     Uri url = Uri.parse('http://prueba.co');
     try {
-      const response = mockTaskResponse;
+      var response = await getMockResponse();
           //await http.post(url, body: task.toJson());
      // if(response.statusCode != 200) throw HttpException('${response.statusCode}');
       return Task.fromMap(response);
