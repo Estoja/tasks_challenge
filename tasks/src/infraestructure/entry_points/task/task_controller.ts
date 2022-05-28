@@ -8,46 +8,39 @@ export class TaskControllers {
 
     constructor(createTaskUseCase: CreateTaskUseCase) {
         this._createTaskUseCase = createTaskUseCase;
-        console.log('HOLA CONSTRUCTOR');
-        console.log(this._createTaskUseCase);
     }
 
-    CreateTask(req: Request<Task>, res: Response, next: NextFunction) {
-        // console.log('HOLA');
-        // //console.log(this._createTaskUseCase);
-        // const aux = {
-        //     id: '',
-        //     title: 'String;',
-        //     description: "String;",
-        //     keyWords: ['hola'],
-        //     finalPrice: 12,
-        //     count: 1,
-        //     state: "String;",
-        //     client: {
-        //         id: "1",
-        //         proposed_price: 12,
-        //         review: "asdfasdf",
-        //         score: 2
-        //     },
-        //     doer:{
-        //         id: "1",
-        //         proposed_price: 12,
-        //         review: "asdfasdf",
-        //         score: 2
-        //     },
-        //     scheduleDate: new Date(),
-        //     createdDate: new Date(),
-        //     duration: 0
-        // } as Task;
-        // this._createTaskUseCase.createNewTask(aux).subscribe(x => console.log('DANIEL'))
-        // if(this._createTaskUseCase.createNewTask(aux) === undefined) {
-        //     console.log("CAGASTE LIGHT");
-        // }
+    CreateTask(req: Request<{}, {}, Task>, res: Response, next: NextFunction) {
+        const aux = {
+            id: '',
+            title: 'String;',
+            description: "String;",
+            keyWords: ['hola'],
+            finalPrice: 12,
+            count: 1,
+            state: "String;",
+            client: {
+                id: "1",
+                proposed_price: 12,
+                review: "asdfasdf",
+                score: 2
+            },
+            doer:{
+                id: "1",
+                proposed_price: 12,
+                review: "asdfasdf",
+                score: 2
+            },
+            scheduleDate: new Date(),
+            createdDate: new Date(),
+            duration: 0
+        } as Task;
+        req.body = aux;
         of(req.body)
             .pipe(
                     mergeMap(task => this._createTaskUseCase.createNewTask(task))
                 )
-            .subscribe(createdTask => res.json(Convert.taskToJson(createdTask))
+            .subscribe(createdTask => res.send(Convert.taskToJson(createdTask))
             );
     }
 }

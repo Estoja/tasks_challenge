@@ -1,4 +1,3 @@
-import { TaskGateway } from './../../../domain/models/task/gateway/task_gateway';
 import express, { Router } from 'express'
 import { CreateTaskUseCase } from '../../../domain/usecase/task/create_task_usecase';
 import { TaskControllers } from './task_controller';
@@ -15,8 +14,9 @@ export class TaskRouter {
     }
 
     getRouter() {
-        console.log("taskRouter");
-        console.log(this._taskController._createTaskUseCase);
-        return this._router.use('/', this._taskController.CreateTask);
+        return this._router
+                .use('/', (req, res, next ) =>
+                        this._taskController.CreateTask(req, res, next)
+                    );
     }
 }

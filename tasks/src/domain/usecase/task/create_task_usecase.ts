@@ -12,12 +12,12 @@ export class CreateTaskUseCase {
 
     createNewTask(task: Task): Observable<Task> {
         return of(uuidv4()).pipe(
-            map(id => {
-                task.id = id;
-                task.createdDate = new Date();
-                return task
-            }),
-            mergeMap( task2save => this._taskGateway.createTask(task2save))
-        );
+                map(id => {
+                    task.id = id;
+                    task.createdDate = new Date();
+                    return task
+                }),
+                mergeMap( task2save => this._taskGateway.createTask(task2save))
+            );
     }
 }
