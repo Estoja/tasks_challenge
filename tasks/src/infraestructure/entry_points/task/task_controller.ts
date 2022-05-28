@@ -11,6 +11,7 @@ export class TaskControllers {
     }
 
     CreateTask(req: Request<{}, {}, Task>, res: Response, next: NextFunction) {
+        console.log(req);
         const aux = {
             id: '',
             title: 'String;',

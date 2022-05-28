@@ -13,18 +13,22 @@ class TaskApi extends TaskGateway {
 
   @override
   Future<Task> createTask(Task task) async {
-    Uri url = Uri.parse('http://prueba.co');
+    Uri url = Uri.parse('https://10.0.2.2:8000/task');
     try {
-      var response = await getMockResponse();
-          //await http.post(url, body: task.toJson());
-     // if(response.statusCode != 200) throw HttpException('${response.statusCode}');
-      return Task.fromMap(response);
-    } on SocketException {
-      throw "ERROR: No internet connection";
-    } on HttpException {
-      throw "ERROR: Couldn't find it 😱";
+      //var response = await getMockResponse();
+      var response =
+          await http.post(url, body: task.toJson())
+            .timeout(const Duration(seconds: 5));
+      if(response.statusCode != 200) throw HttpException('${response.statusCode}');
+      return Task.fromJson(response.body);
+    } on SocketException catch(error) {
+      print(error);
+      throw "No internet connection.";
+    } on HttpException catch(error) {
+      print('error $error');
+      throw "Couldn't find it 😱";
     } on FormatException {
-      throw "ERROR: Bad response format";
+      throw "Bad response format";
     }
   }
 }

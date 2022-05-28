@@ -9,7 +9,7 @@ class Task {
   final int? count;
   final String state;
   final Reviewed client;
-  final Reviewed? doer;
+  Reviewed? doer = Reviewed.fromMap({"id": "", "proposed_price": 0});
   final DateTime scheduleDate;
   DateTime createdDate = DateTime.now();
   final int? duration;
@@ -19,13 +19,13 @@ class Task {
     required this.title,
     required this.description,
     required this.keyWords,
-    this.finalPrice,
+    this.finalPrice = 0,
     this.count = 1,
     this.state = "NEW",
     required this.client,
     this.doer,
     required this.scheduleDate,
-    this.duration
+    this.duration = 0
   });
 
 
@@ -55,10 +55,12 @@ class Task {
     "finalPrice": finalPrice,
     "count": count,
     "state": state,
-    "date": scheduleDate,
+    "date": scheduleDate.toString(),
     "duration": duration,
     "client": Reviewed.fromMap(client.toMap()),
-    "doer": Reviewed.fromMap(doer!.toMap()),
+    "doer": doer!= null?
+          Reviewed.fromMap(doer!.toMap()) :
+          Reviewed.fromMap({"id": "", "proposed_price": 0}),
   };
 }
 

@@ -9,4 +9,9 @@ const createTaskUseCase = new CreateTaskUseCase(taskService);
 const taskRouter = new TaskRouter(createTaskUseCase);
 routes.get('/task', taskRouter.getRouter())
 
+//defaul route
+routes.get("*", function (req, res) {
+    res.status(404).send("Error_page");
+});
+
 export default routes
