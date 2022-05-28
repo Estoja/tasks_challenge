@@ -11,7 +11,6 @@ export interface Task {
 	scheduleDate: Date;
 	createdDate: Date;
 	duration?: number;
-
 }
 
 export interface Reviewed {
