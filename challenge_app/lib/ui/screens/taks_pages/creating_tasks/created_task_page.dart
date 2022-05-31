@@ -15,22 +15,6 @@ class CreatedTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Task newTask = Task(
-      title: "taskTitleController.text",
-      description: "taskDescriptionController.text",
-      keyWords: [],
-      client: Reviewed(
-          idUser: '1152193027',
-          proposedPrice: 12
-        ),
-      scheduleDate: DateTime(
-          2022,
-          12,
-          12,
-          14,
-          20
-        )
-    );
     final taskProvider = Provider.of<TaskProvider>(context);
     return Scaffold(
       appBar: BcHeaderNavigationBar(
