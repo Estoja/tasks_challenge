@@ -14,14 +14,19 @@ export class NewTaskComponent implements OnInit {
     hint: '33',
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
-  getCurrentDate(): String {//2018-01-01
+  getCurrentDate(): String {
     const currentDate = new Date();
     return `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+  }
+
+  getCurrentHour(): String {
+    const currentDate = new Date();
+    return `${currentDate.getHours()}:${currentDate.getMinutes()}`;
   }
 
 }

@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+//Clases con problemas de layout en el bds, se sobreescriben
+.bc-row{
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.bc-offset-xs-1 {
+    flex: auto;
+}

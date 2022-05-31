@@ -5,6 +5,7 @@ import { CreatedTaskComponent } from './screens/tasks_pages/created-task/created
 import { BcInputModule } from 'bancolombia-design-system/bc-input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BcInputNumberModule } from 'bancolombia-design-system/bc-input-number';
+import { BcButtonModule } from 'bancolombia-design-system/bc-button';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BcInputNumberModule } from 'bancolombia-design-system/bc-input-number';
     CommonModule,
     BcInputModule,
     ReactiveFormsModule,
-    BcInputNumberModule
+    BcInputNumberModule,
+    BcButtonModule
   ]
 })
 export class TaskModule { }

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BcButtonModule } from 'bancolombia-design-system/bc-button';
 import { BcIconModule } from 'bancolombia-design-system/bc-icon';
 import { TaskModule } from './ui/task/task.module';
 import { CommonsModule } from './ui/commons/commons.module';
@@ -15,7 +14,6 @@ import { CommonsModule } from './ui/commons/commons.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BcButtonModule,
     BcIconModule.forRoot({
       path: '',
     }),

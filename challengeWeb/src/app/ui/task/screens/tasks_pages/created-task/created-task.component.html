@@ -1,1 +1,99 @@
-<p>created-task works!</p>
+<form action="">
+    <div class="bc-container">
+        <div class="bc-row">
+            <div class="
+                bc-col-xs-6
+                bc-col-sm-12
+            ">
+                <h2 >{{this.task.title}}</h2>
+            </div>
+        </div>
+        <div class="bc-row space_3_top">
+            <div class="
+            bc-col-xl-8
+            bc-offset-xl-2
+            bc-col-lg-10
+            bc-offset-lg-1
+            bc-col-sm-12
+            bc-offset-sm-0
+            bc-col-xs-6
+            bc-offset-xs-0
+            ">
+                <p>{{this.task.description}}</p>
+            </div>
+        </div>
+        <div class="bc-row space_3_top">
+            <div class="
+                bc-col-xl-8
+                bc-offset-xl-2
+                bc-col-lg-10
+                bc-offset-lg-1
+                bc-col-sm-12
+                bc-offset-sm-0
+                bc-col-xs-6
+                bc-offset-xs-0
+            ">
+                <p>{{this.task.keyWords.join('/')}}</p>
+            </div>
+        </div>
+        <div class="bc-row space_3_top">
+            <div class="
+                space_2_top
+                bc-col-xs-6
+                bc-col-sm-3
+                bc-col-md-2
+                bc-col-lg-2
+                bc-offset-lg-1
+                bc-col-xl-2
+                bc-offset-xl-2
+            ">
+                <p>
+                    <strong>Cantidad:</strong>&nbsp;&nbsp;{{this.task.count}}
+                </p>
+            </div>
+            <div class="
+                space_2_top
+                bc-col-xs-6
+                bc-col-sm-5
+                bc-offset-sm-4
+                bc-col-md-4
+                bc-offset-md-6
+                bc-col-lg-3
+                bc-offset-lg-1
+                bc-col-xl-2
+                bc-offset-xl-1
+            ">
+                <p>
+                    <strong>Precio propuesto:</strong>&nbsp;&nbsp;${{this.task.client.proposed_price}}
+                </p>
+            </div>
+            <p class="
+                space_2_top
+                bc-col-xs-6
+                bc-col-sm-5
+                bc-col-md-12
+                bc-col-lg-3
+                bc-offset-lg-1
+                bc-col-xl-2
+                bc-offset-xl-1
+            ">
+                <strong>Fecha:</strong>&nbsp;&nbsp;{{showDate(this.task.scheduleDate)}}
+            </p>
+        </div>
+        <div class="bc-row space_8_top space_8_top_padding">
+            <div class="
+                bc-col-xl-4
+                bc-offset-xl-4
+                bc-col-lg-6
+                bc-offset-lg-3
+                bc-col-md-8
+                bc-offset-md-2
+                bc-col-sm-10
+                bc-offset-sm-1
+                bc-col-xs-6
+                bc-offset-xs-0
+            ">
+                <img src="assets/astronaut.png" alt="Nature" class="responsive">
+            </div>
+        </div>
+    </div>
