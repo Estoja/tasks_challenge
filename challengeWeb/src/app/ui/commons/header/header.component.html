@@ -1,0 +1,19 @@
+<header>
+    <img bc-avatar sizeAvatar ='small' src="assets/logo.png" alt="">
+    <menu id="myTopnav">
+        <a (click)=openNav()><bc-icon>menu</bc-icon></a>
+        <ul>
+            <li><a href="#">Buscar</a></li>
+            <li><a href="#">Agregar</a></li>
+            <li><a href="#">Historial</a></li>
+            <li><a href="#">Perfil</a></li>
+        </ul>
+    </menu>
+</header>
+<aside id="mySidenav">
+    <button (click)=closeNav()><bc-icon>error</bc-icon></button>
+    <a href="#">Buscar</a>
+    <a href="#">Agregar</a>
+    <a href="#">Historial</a>
+    <a href="#">Perfil</a>
+</aside>

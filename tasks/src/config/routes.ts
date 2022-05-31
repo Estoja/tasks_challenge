@@ -7,7 +7,7 @@ const routes = express.Router();
 const taskService = new TaskService();
 const createTaskUseCase = new CreateTaskUseCase(taskService);
 const taskRouter = new TaskRouter(createTaskUseCase);
-routes.get('/task', taskRouter.getRouter())
+routes.post('/task', taskRouter.getRouter())
 
 //defaul route
 routes.get("*", function (req, res) {

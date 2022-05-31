@@ -1,6 +1,6 @@
-import { Task } from './../../models/task/task';
 import { Observable } from 'rxjs';
-import { TaskGateway } from './../../models/task/gateway/task_gateway';
+import { TaskGateway } from '../../models/task/gateway/task_gateway';
+import { Task } from '../../models/task/task';
 
 export class CreateTaskUseCase {
     private _taskGateway: TaskGateway;

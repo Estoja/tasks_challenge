@@ -1,4 +1,5 @@
-import { delay, Observable, of, map } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
 
 export function getMockResponse(): Observable<string> {
     return of({

@@ -33,6 +33,7 @@ class NewTask extends StatelessWidget {
               title: taskTitleController.text,
               description: taskDescriptionController.text,
               keyWords: keyWordsController.text.split('/'),
+              count: int.parse(counterController.text),
               client: Reviewed(
                   idUser: '1152193027',
                   proposedPrice: int.parse(proposedPriceController.text)

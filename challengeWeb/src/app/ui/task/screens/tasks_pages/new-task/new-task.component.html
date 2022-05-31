@@ -1,0 +1,130 @@
+<form action="">
+    <div class="bc-container">
+        <div class="bc-row">
+            <div class="
+                bc-col-lg-4
+                bc-offset-lg-4
+                bc-col-md-6
+                bc-offset-md-3
+                bc-col-sm-8
+                bc-offset-sm-2
+                bc-col-xs-6
+                bc-offset-xs-0
+            ">
+                <h2 >Creando nueva Tarea</h2>
+            </div>
+        </div>
+        <div class="bc-row  space_3_top">
+            <div class="
+                bc-col-xl-8
+                bc-offset-xl-2
+                bc-col-lg-10
+                bc-offset-lg-1
+                bc-col-sm-12
+                bc-offset-sm-0
+                bc-col-xs-6
+                bc-offset-xs-0
+            ">
+                <bc-form-field>
+                    <input bc-input aria-label="input-default" type="text" value="" required/>
+                    <label for="">Titulo</label>
+                    <span>Ingresa un titulo corto</span>
+                </bc-form-field>
+            </div>
+        </div>
+        <div class="bc-row space_2_top">
+            <div class="
+            bc-col-xl-8
+            bc-offset-xl-2
+            bc-col-lg-10
+            bc-offset-lg-1
+            bc-col-sm-12
+            bc-offset-sm-0
+            bc-col-xs-6
+            bc-offset-xs-0
+            ">
+                <bc-form-field>
+                    <textarea bc-input aria-label="text-area" type="text" placeholder="" value="" required></textarea>
+                    <label for="">Descripcion</label>
+                    <span>Breve descripci&oacute;n</span>
+                </bc-form-field>
+            </div>
+        </div>
+        <div class="bc-row space_2_top">
+            <div class="
+                bc-col-xl-8
+                bc-offset-xl-2
+                bc-col-lg-10
+                bc-offset-lg-1
+                bc-col-sm-12
+                bc-offset-sm-0
+                bc-col-xs-6
+                bc-offset-xs-0
+            ">
+                <bc-form-field>
+                    <input bc-input aria-label="input-default" type="text" value="" required/>
+                    <label for="">Palabras clave</label>
+                    <span>Separa las palabras con slash. ej: Ventana/limpiar/dos pisos/</span>
+                </bc-form-field>
+            </div>
+        </div>
+        <div class="bc-row space_3_top">
+            <div class="
+                bc-col-xl-4
+                bc-offset-xl-2
+                bc-col-lg-5
+                bc-offset-lg-1
+                bc-col-sm-6
+                bc-col-xs-6
+            ">
+                <bc-input-number
+                [step]="1"
+                [min]="'0'"
+                [initValue]="1"
+                [label]="'Cantidad'"
+                [hint]="'33'"
+                [formControl]="inputNumber">
+            </bc-input-number>
+            </div>
+            <div class="
+                bc-col-xl-4
+                bc-col-lg-5
+                bc-col-sm-6
+                bc-col-xs-6
+            ">
+                <bc-input-number
+                [step]="1"
+                [min]="'1'"
+                [initValue]="1"
+                [label]="'Precio'"
+                [hint]="'100'"
+                [formControl]="inputNumber">
+            </bc-input-number>
+            </div>
+        </div>
+        <div class="bc-row space_3_top">
+            <bc-form-field class="
+                        bc-col-xl-4
+                        bc-offset-xl-2
+                        bc-col-lg-5
+                        bc-offset-lg-1
+                        bc-col-sm-6
+                        bc-col-xs-6
+                    "
+                    [formControl]="dateSelectorSimple"
+                    inputType="date">
+                <em>calendar</em>
+                <input
+                    bc-input
+                    typeInput="input-default-left"
+                    id="idInput1"
+                    type="date"
+                    value=""
+                    min = "{{getCurrentDate()}}"
+                    required/>
+                <em>arrow2-down</em>
+                <label for="idInput1">Fecha de tarea</label>
+                <span>Selecciona una fecha del calendario</span>
+            </bc-form-field>
+        </div>
+    </div>

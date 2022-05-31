@@ -4,12 +4,12 @@ class Task {
   final String id;
   final String title;
   final String description;
-  final List<String> keyWords;
+  final List<dynamic> keyWords;
   final int? finalPrice;
   final int? count;
   final String state;
   final Reviewed client;
-  Reviewed? doer = Reviewed.fromMap({"id": "", "proposed_price": 0});
+  Reviewed? doer;
   final DateTime scheduleDate;
   DateTime createdDate = DateTime.now();
   final int? duration;
@@ -43,8 +43,8 @@ class Task {
     state: json["state"],
     scheduleDate: DateTime.parse(json["scheduleDate"]),
     duration: json["duration"],
-    client: Reviewed.fromMap(json["client"]),
-    doer: Reviewed.fromMap(json["doer"] ?? {"id": "", "proposed_price": 0}),
+    client: Reviewed.fromJson((json["client"])),
+    doer: Reviewed.fromJson(json["doer"] ?? {"id": "", "proposed_price": 0}),
   );
 
   Map<String, dynamic> toMap() => {
@@ -55,7 +55,7 @@ class Task {
     "finalPrice": finalPrice,
     "count": count,
     "state": state,
-    "date": scheduleDate.toString(),
+    "scheduleDate": scheduleDate.toString(),
     "duration": duration,
     "client": Reviewed.fromMap(client.toMap()),
     "doer": doer!= null?

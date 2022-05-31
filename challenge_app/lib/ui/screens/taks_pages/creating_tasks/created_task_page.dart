@@ -43,7 +43,7 @@ class CreatedTaskPage extends StatelessWidget {
           ),
       ),
       body: FutureBuilder<Task>(
-        future: taskProvider.createTaskUseCase.createNewTask(newTask),
+        future: taskProvider.createTaskUseCase.createNewTask(task),
         builder: (context, snapshot) {
           Widget result = const Center(
             child: BcLoader(speed: 1500, type: BcLoaderSize.Default)
