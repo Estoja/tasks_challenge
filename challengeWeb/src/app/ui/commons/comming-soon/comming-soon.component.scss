@@ -1,0 +1,229 @@
+
+
+@keyframes ballMovement {
+  0% {top:280px;left:40px;}
+  5% {top:280px;left:40px;}
+  15% {top:35px;left:40px;}
+  20% {top:35px;left:110px;}
+  22% {top:45px;left:110px;}
+  30% {top:74px;left:295px;}
+  32% {top:114px;left:295px;}
+  40% {top:150px;left:110px;}
+  42%{top:194px;left:110px;}
+  50%{top:224px;left:290px;}
+  52%{top:280px;left:290px;}
+  55%{top:280px;left:290px;}
+  80%{top:280px;left:40px;}
+  100%{top:280px;left:40px;}
+}
+
+@keyframes cartMovement {
+  0% {right:278px;}
+  5% {right:278px;}
+  55% {right:18px;}
+  80% {right:278px;}
+  100% {right:278px;}
+}
+
+@keyframes craneMovement1 {
+  0% {top:270px;}
+  5% {top:270px;}
+  15% {top:30px;}
+  20% {top:30px;}
+  30% {top:30px;}
+  50% {top:150px;}
+  90% {top:150px;}
+  100% {top:270px;}
+}
+
+@keyframes lineMovement {
+  0% {height:270px;}
+  5% {height:270px;}
+  15% {height:30px;left:50px;}
+  21% {height:30px;left:132px;}
+  23% {height:30px;left:132px;}
+  30% {height:30px;left:50px;}
+  50% {height:150px;}
+  90% {height:150px;}
+  100% {height:270px;}
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+  width:350px;
+  height:400px;
+  margin:0 auto;
+  margin-top:5%;
+  position: relative;
+  background:radial-gradient(#33ABE3,#59ABE3);
+  box-shadow:0 0 15px #000;
+}
+
+.wrapper::before {
+  content:"";
+  position: absolute;
+  width:350px;
+  height:75px;
+  bottom:0;
+  left:0;
+  background:linear-gradient(#EB9532, #D35400);
+}
+
+.wrapper::after {
+  content:"";
+  position: absolute;
+  width:80px;
+  height:290px;
+  border-right:20px solid gray;
+  border-left:20px solid gray;
+  left:150px;
+  bottom:75px;
+  opacity:0.3;
+}
+
+.bar1 {
+  width:170px;
+  height:20px;
+  background-color:#EF4836;
+  position: absolute;
+  left:115px;
+  top:80px;
+  z-index:2;
+  transform:rotate(10deg);
+}
+
+.bar1::before {
+  content:"";
+  position: absolute;
+  top:4px;
+  left:0;
+  width:170px;
+  height:12px;
+  background-color:#C0392B;
+}
+
+.bar2 {
+  width:170px;
+  height:20px;
+  background-color:#EF4836;
+  position: absolute;
+  left:140px;
+  top:155px;
+  z-index:2;
+  transform:rotate(-10deg);
+}
+
+.bar2::before {
+  content:"";
+  position: absolute;
+  top:4px;
+  left:0;
+  width:170px;
+  height:12px;
+  background-color:#C0392B;
+}
+
+.bar3 {
+  width:180px;
+  height:20px;
+  background-color:#EF4836;
+  position: absolute;
+  left:105px;
+  top:230px;
+  z-index:2;
+  transform:rotate(10deg);
+}
+
+.bar3::before {
+  content:"";
+  position: absolute;
+  top:4px;
+  left:0;
+  width:180px;
+  height:12px;
+  background-color:#C0392B;
+}
+
+.cart {
+  position: absolute;
+  border-bottom: 30px solid #34495E;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    height: 0;
+    width: 30px;
+  transform:rotate(180deg);
+  top:290px;
+  right:25px;
+  animation: cartMovement 8s linear infinite;
+  z-index:5;
+}
+
+.cart::before {
+  content:'';
+  position: absolute;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background-color:#67809F;
+  top:-7px;
+  right:18px;
+}
+
+.cart::after {
+  content:'';
+  position: absolute;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background-color:#67809F;
+  top:-7px;
+  right:-4px;
+}
+
+.line {
+  width:3px;
+  height:270px;
+  background-color:gray;
+  position: absolute;
+  left:50px;
+  top:0;
+  animation: lineMovement 8s linear infinite;
+}
+
+.line::before {
+  content:"";
+  position: absolute;
+  left:-19px;
+  width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #C0392B;
+}
+
+.claw {
+  position: absolute;
+  top:270px;
+  left:-16px;
+  width:26px;
+  height:20px;
+  border-top:6px solid #F5AB35;
+  border-left:6px solid #F5AB35;
+  border-right:6px solid #F39C12;
+  animation: craneMovement1 8s linear infinite;
+}
+
+.ball {
+  position: absolute;
+  width:25px;
+  height:25px;
+  background-color:#2C3E50;
+  border-radius:50%;
+  top:280px;
+  left:40px;
+  animation: ballMovement 8s linear infinite;
+  z-index:4;
+}

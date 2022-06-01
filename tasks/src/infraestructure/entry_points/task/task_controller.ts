@@ -10,7 +10,7 @@ export class TaskControllers {
         this._createTaskUseCase = createTaskUseCase;
     }
 
-    CreateTask(req: Request<{}, {}, Task>, res: Response, next: NextFunction) {
+    CreateTask(req: Request<{}, {}, Task>, res: Response) {
         of(req.body)
             .pipe(
                     mergeMap(task => this._createTaskUseCase.createNewTask(task))

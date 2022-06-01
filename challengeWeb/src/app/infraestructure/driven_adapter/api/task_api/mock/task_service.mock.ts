@@ -13,7 +13,7 @@ export function getMockResponse(): Observable<string> {
                 "id": "1",
                 "proposed_price": 12,
             },
-            "scheduleDate": "2022-05-28 13:30:00.000Z"
+            "scheduleDate": new Date("2022-05-28 13:30:00.000Z")
         }).pipe(
             map(data => JSON.stringify(data)),
             delay(2000)

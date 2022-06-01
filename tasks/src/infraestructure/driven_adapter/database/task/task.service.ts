@@ -1,9 +1,9 @@
-import { Convert } from './../../../../domain/models/task/task';
 import { Observable, map, of, mergeMap, from } from 'rxjs';
 import { Task } from '../../../../domain/models/task/task';
 import { TaskGateway } from './../../../../domain/models/task/gateway/task_gateway';
 import * as mongoDB from "mongodb";
 import { TaskData, ConvertTaskData } from './taskData';
+
 export class TaskService implements TaskGateway {
     uri = 'mongodb://localhost:27017';
     private _client: mongoDB.MongoClient;

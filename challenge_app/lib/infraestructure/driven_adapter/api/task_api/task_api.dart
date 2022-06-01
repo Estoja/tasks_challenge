@@ -12,7 +12,7 @@ class TaskApi extends TaskGateway {
 
   @override
   Future<Task> createTask(Task task) async {
-    Uri url = Uri.http('10.0.2.2:3000','/task');
+    Uri url = Uri.http('10.0.2.2:3000','/task/create-task');
     try {
       //var response = await getMockResponse();
       var response =

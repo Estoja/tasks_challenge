@@ -10,13 +10,15 @@ export class TaskRouter {
     constructor(createTaskUsecase: CreateTaskUseCase) {
         this._createTaskUsecase = createTaskUsecase;
         this._taskController = new TaskControllers(this._createTaskUsecase);
-        this._router = express.Router();
+        this._router = express.Router({mergeParams: true});
+        this._router
+                .route('/create')
+                .post( (req, res ) =>
+                    this._taskController.CreateTask(req, res)
+                );
     }
 
     getRouter() {
-        return this._router
-                .use('/', (req, res, next ) =>
-                        this._taskController.CreateTask(req, res, next)
-                    );
+        return this._router;
     }
 }

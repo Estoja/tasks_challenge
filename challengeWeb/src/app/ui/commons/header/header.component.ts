@@ -8,9 +8,8 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 export class HeaderComponent implements OnInit {
   _sidenav: any;
 
-  constructor(private elementRef: ElementRef, private render: Renderer2) { 
-  }
-  
+  constructor(private elementRef: ElementRef, private render: Renderer2) {}
+
   ngOnInit(): void {
     this._sidenav = this.elementRef.nativeElement.querySelector('aside');
   }
