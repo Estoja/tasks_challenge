@@ -4,7 +4,7 @@
             bc-col-xs-6
             bc-col-sm-12
         ">
-            <h2 >{{this.task?.title}}</h2>
+            <h2 tabindex="0">{{this.task?.title}}</h2>
         </div>
     </div>
     <div class="bc-row space_3_top">
@@ -18,7 +18,7 @@
         bc-col-xs-6
         bc-offset-xs-0
         ">
-            <p>{{this.task?.description}}</p>
+            <p tabindex="0">{{this.task?.description}}</p>
         </div>
     </div>
     <div class="bc-row space_3_top">
@@ -32,7 +32,7 @@
             bc-col-xs-6
             bc-offset-xs-0
         ">
-            <p>{{this.task!.keyWords.join('/')}}</p>
+            <p tabindex="0">{{this.task!.keyWords.join('/')}}</p>
         </div>
     </div>
     <div class="bc-row space_3_top">
@@ -46,7 +46,7 @@
             bc-col-xl-2
             bc-offset-xl-2
         ">
-            <p>
+            <p tabindex="0">
                 <strong>Cantidad:</strong>&nbsp;&nbsp;{{this.task?.count}}
             </p>
         </div>
@@ -62,7 +62,7 @@
             bc-col-xl-2
             bc-offset-xl-1
         ">
-            <p>
+            <p tabindex="0">
                 <strong>Precio propuesto:</strong>&nbsp;&nbsp;${{this.task!.client.proposed_price}}
             </p>
         </div>
@@ -75,7 +75,7 @@
             bc-offset-lg-1
             bc-col-xl-2
             bc-offset-xl-1
-        ">
+        " tabindex="0">
             <strong>Fecha:</strong>&nbsp;&nbsp;{{showDate(this.task!.scheduleDate)}}
         </p>
     </div>

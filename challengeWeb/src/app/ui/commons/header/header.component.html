@@ -1,19 +1,19 @@
 <header>
     <img bc-avatar sizeAvatar ='small' src="assets/logo.png" alt="">
     <menu id="myTopnav">
-        <a (click)=openNav()><bc-icon>menu</bc-icon></a>
+        <button (click)=openNav() aria-label="Boton para abrir menu lateral"><bc-icon>menu</bc-icon></button>
         <ul>
-            <li><a href="#">Buscar</a></li>
-            <li><a href="#">Agregar</a></li>
-            <li><a href="#">Historial</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="#" aria-label="link para ir a la seccion buscar">Buscar</a></li>
+            <li><a href="#" aria-label="link para ir a la seccion Agregar">Agregar</a></li>
+            <li><a href="#" aria-label="link para ir a la seccion Historial">Historial</a></li>
+            <li><a href="#" aria-label="link para ir a la seccion Perfil">Perfil</a></li>
         </ul>
     </menu>
 </header>
 <aside id="mySidenav">
-    <button (click)=closeNav()><bc-icon>error</bc-icon></button>
-    <a href="#">Buscar</a>
-    <a href="#">Agregar</a>
-    <a href="#">Historial</a>
-    <a href="#">Perfil</a>
+    <button (click)=closeNav() aria-label="Boton para cerrar menu lateral"><bc-icon>error</bc-icon></button>
+    <a href="#" aria-label="link para ir a la seccion Buscar">Buscar</a>
+    <a href="#" aria-label="link para ir a la seccion Agregar">Agregar</a>
+    <a href="#" aria-label="link para ir a la seccion Historial">Historial</a>
+    <a href="#" aria-label="link para ir a la seccion Perfil">Perfil</a>
 </aside>

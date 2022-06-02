@@ -26,7 +26,7 @@
             ">
                 <bc-form-field>
                     <input id="title" bc-input
-                            aria-label="input-default"
+                            aria-label="ingresa titulo"
                             type="text"
                             formControlName="title"
                             required/>
@@ -49,7 +49,8 @@
                 <bc-form-field>
                     <textarea
                             id="description"
-                            bc-input aria-label="text-area"
+                            bc-input
+                            aria-label="ingresa descripcion corta"
                             type="text"
                             placeholder=""
                             value=""
@@ -75,7 +76,7 @@
                     <input
                             id="keyWords"
                             bc-input
-                            aria-label="input-default"
+                            aria-label="ingresa palabras clave separadas por slash"
                             type="text"
                             value=""
                             formControlName="keyWords"
@@ -98,6 +99,7 @@
                     <label for="count">Cantidad</label>
                     <input  type="number"
                             class="form-control"
+                            aria-label="ingresa la cantidad de objetos"
                             id="count"
                             formControlName="count">
                 </div>
@@ -112,6 +114,7 @@
                     <label for="price">Precio</label>
                     <input  id="price"
                             type="number"
+                            aria-label="ingresa el precio"
                             class="form-control"
                             formControlName="price">
                 </div>
@@ -131,6 +134,7 @@
                 <input
                     bc-input
                     typeInput="input-default-left"
+                    aria-label="selecciona la fecha para realizar la tarea"
                     id="scheduleDate"
                     type="date"
                     min = "{{getCurrentDate()}}"
@@ -152,6 +156,7 @@
                     typeInput="input-default-left"
                     id="time"
                     type="time"
+                    aria-label="selecciona una hora para realizar la tarea"
                     value="{{getCurrentHour()}}"
                     formControlName="time"
                     required/>
@@ -172,7 +177,12 @@
                 bc-col-xs-6
                 bc-offset-xs-0
             ">
-                <button bc-button (click)="createTask()">Crear</button>
+                <button
+                        bc-button
+                        (click)="createTask()"
+                        aria-label="Boton para crear tarea">
+                    Crear
+                </button>
             </div>
         </div>
 </form>
