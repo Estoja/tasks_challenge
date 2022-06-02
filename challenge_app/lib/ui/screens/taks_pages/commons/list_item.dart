@@ -63,7 +63,6 @@ class ListItem extends StatelessWidget {
       default:
       break;
     }
-    print(taskState);
     return icon;
   }
 

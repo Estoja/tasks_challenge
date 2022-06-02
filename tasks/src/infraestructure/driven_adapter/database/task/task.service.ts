@@ -31,7 +31,7 @@ export class TaskService implements TaskGateway {
                 .pipe(
                     mergeMap(data => from(this._collection.insertOne(data))),
                     mergeMap(savedDate => this._collection.findOne({_id: savedDate.insertedId})),
-                    map(x => ConvertTaskData.toTask(x))
+                    map(mongoTask => ConvertTaskData.toTask(mongoTask))
                 );
     }
 

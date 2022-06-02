@@ -1,0 +1,84 @@
+type: object
+properties:
+  id:
+    type: string
+    example: asdfa16asd5f
+    description: Identificador unico de la tarea, lo genera mongoDB (primary key)
+  title:
+    type: string
+    example: Limpiar ventanas
+    description: titulo de la tarea, lo agrega el cliente en el front
+  description:
+    type: string
+    example: Necesito alguien que pueda limpiar las ventanas de mi casa
+    description: Breve descripcion de la tarea
+  keyWords:
+    type: array
+    items:
+      type: string
+      example: ventana
+    description: Palabras clave para identificar la tarea (se agregan separados por /)
+  finalPrice:
+    type: integer
+    example: 100
+    description: Precio final aceptado
+  count:
+    type: integer
+    example: 20
+    description: Cantidad de veces la tarea (ej 20 ventanas)
+  state:
+    type: string
+    example: NEW
+    description: Estado actual de la tarea (nueva, en proceso, pendiente, finalizada..)
+  client:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 2165asd48f12
+        description: Identificador unico del cliente, lo genera mongoDB (primary key)
+      proposed_price:
+        type: integer
+        example: 50
+        description: Precio propuesto por el cliente
+      review:
+        type: string
+        example: Muy amable
+        description: Review dado por el trabajador
+      score:
+        type: integer
+        example: 4
+        description: Calificacion dada por el trabajador
+  doer:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 2165asd48asdff12
+        description: Identificador unico del cliente, lo genera mongoDB (primary key)
+      proposed_price:
+        type: integer
+        example: 100
+        description: Precio propuesto por el trabajador
+      review:
+        type: string
+        example: Excelente trabajador
+        description: Review dado por el cliente
+      score:
+        type: integer
+        example: 5
+        description: Calificacion dada por el Cliente
+  scheduleDate:
+    type: string
+    example: 2020-07-21T16:30
+    format: date-time
+    description: Fecha programada para realizar la tarea
+  createdDate:
+    type: string
+    example: 2020-07-20T16:30
+    format: date-time
+    description: Fecha de creacion de la tarea
+  duration:
+    type: integer
+    example: 10
+    description: Duracion de la tarea en minutos

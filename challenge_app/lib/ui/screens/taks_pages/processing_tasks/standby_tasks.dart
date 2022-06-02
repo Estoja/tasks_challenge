@@ -1,9 +1,7 @@
 
 
 import 'package:bds_mobile/atoms/atoms.dart';
-import 'package:bds_mobile/foundations/foundations.dart';
 import 'package:challenge_app/ui/screens/taks_pages/commons/list_item.dart';
-import 'package:challenge_app/ui/screens/taks_pages/enums/tasks_enumerables.dart';
 import 'package:flutter/material.dart';
 
 class StandByTasks extends StatelessWidget {
