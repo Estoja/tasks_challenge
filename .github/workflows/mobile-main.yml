@@ -1,0 +1,49 @@
+#name: Flutter CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - challenge_app/**
+      - .github/workflows/mobile-main.yml
+  pull_request:
+    branches: [ main ]
+    paths:
+      - challenge_app/**
+      - .github/workflows/mobile-main.yml
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: challenge_app
+    steps:
+    # Clonar repositorio
+    - uses: actions/checkout@v1
+    # se configura java para generar el APK
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    
+    # Setup the flutter environment.
+    - uses: subosito/flutter-action@v1
+      with:
+        flutter-version: '3.0.x'
+        #channel: 'beta','dev', 'alpha', default to: 'stable'
+    
+    # instalar dependencias de flutter
+    - run: flutter pub get
+    # Validar issues de formateo
+    - run: flutter format --set-exit-if-changed .
+    - run: flutter analyze .
+    #- run: flutter test
+    # Build apk.
+    - run: flutter build apk
+    
+    # Upload generated apk to the artifacts.
+    - uses: actions/upload-artifact@v1
+      with:
+        name: release-apk
+        path: build/app/outputs/apk/release/app-release.apk
