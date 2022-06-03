@@ -4,12 +4,12 @@ on:
     branches: [main]
     paths:
       - challengeWeb/**
-      - .github/workflows/web/build-deploy.yaml
+      - .github/workflows/web-main.yml
   pull_request:
     branches: [main]
     paths:
       - challengeWeb/**
-      - .github/workflows/web/build-deploy.yaml
+      - .github/workflows/web-main.yml
 jobs:
   ci:
     name: Continuous Integration
