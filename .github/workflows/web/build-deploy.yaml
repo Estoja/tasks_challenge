@@ -1,0 +1,45 @@
+name: angular CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - challengeWeb/**
+      - .github/workflows/web/build-deploy.yaml
+  pull_request:
+    branches: [main]
+    paths:
+      - challengeWeb/**
+      - .github/workflows/web/build-deploy.yaml
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: challengeWeb
+    steps:
+      # Clonar repositorio
+      - uses: actions/checkout@v2
+      # Usar node version 14
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      # Cargar cache de node_modules
+      - name: Cache node modules
+        id: node-cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          # se carga el cache siempre y cuando sea el mismo sistema operativo y el package-lock no cambio
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      # Instalar dependencias
+      - name: Install dependencies
+        # Si se cargo cache no ejecutar
+        if: steps.node-cache.outputs.cache-hit != 'true' 
+        run: npm install
+      # Generar compilación de producción
+      - name: Run Build command
+        run: npm run build -- --prod
+      # Ejecutar pruebas unitarias
+      - name: Run Unit tests
+        run: npm run test -- --configuration=ci
