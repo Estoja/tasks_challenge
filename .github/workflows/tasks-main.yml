@@ -34,7 +34,7 @@ jobs:
       id: node-cache
       uses: actions/cache@v3
       with:
-        path: node_modules
+        path: ./tasks/node_modules
         # se carga el cache siempre y cuando sea el mismo sistema operativo y el package-lock no cambio
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
     # Instalar dependencias
